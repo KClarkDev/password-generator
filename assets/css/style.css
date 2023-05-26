@@ -161,3 +161,13 @@ i {
 form {
   margin: 2%;
 }
+
+legend {
+  padding-bottom: 1%;
+  padding-left: 0;
+}
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}

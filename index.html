@@ -23,19 +23,21 @@
               <label for="passwordLength">How long should the password be? </label>
               <input type="number" name="passwordLength" id="passwordLength" min="8" max="128" required><br><br>
 
-              <label for="chars">What characters should be included? </label><br>
-
-              <input type="checkbox" name="chars" id="uppercase" value="Uppercase">
-              <label for="uppercase"> Uppercase</label><br>
-
-              <input type="checkbox" name="chars" id="lowercase" value="Lowercase">
-              <label for="lowercase"> Lowercase</label><br>
-
-              <input type="checkbox" name="chars" id="numeric" value="Numeric">
-              <label for="numeric"> Numeric</label><br>
-
-              <input type="checkbox" name="chars" id="special" value="Special">
-              <label for="special"> Special</label><br>
+              <fieldset>
+                <legend>What characters should be included?</legend>
+            
+                <input type="checkbox" name="chars" id="uppercase" value="Uppercase">
+                <label for="uppercase">Uppercase</label><br>
+            
+                <input type="checkbox" name="chars" id="lowercase" value="Lowercase">
+                <label for="lowercase">Lowercase</label><br>
+            
+                <input type="checkbox" name="chars" id="numeric" value="Numeric">
+                <label for="numeric">Numeric</label><br>
+            
+                <input type="checkbox" name="chars" id="special" value="Special">
+                <label for="special">Special</label><br>
+              </fieldset>
              </form>
             <div class="card-body">
                <textarea
