@@ -21,10 +21,20 @@
             </div>
             <form class="criteria-form" id="passwordForm"> <!--asks for password length (8-128), char types (lower, upper, numeric, special) - min one required! -->
               <label for="passwordLength">How many characters should the password have? </label>
+              
+              <i class="fa-solid fa-circle-question tooltip" id="pwLengthTooltip">
+               <span class="tooltiptext">Password must be between 8 and 128 characters.</span>
+              </i>
+
               <input type="number" name="passwordLength" id="passwordLength" min="8" max="128" required><br><br>
 
-              <fieldset required>
-                <legend>What characters should be included?</legend>
+              <fieldset>
+                <legend>What characters should be included? 
+                  <i class="fa-solid fa-circle-question tooltip" id="pwLengthTooltip">
+                     <span class="tooltiptext">Select at least one character type.</span>
+                    </i>
+                </legend>
+
             
                 <input type="checkbox" name="charType" id="uppercase" value="Uppercase">
                 <label for="uppercase">Uppercase</label><br>

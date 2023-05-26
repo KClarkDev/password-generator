@@ -155,7 +155,7 @@ button[disabled] {
 }
 
 i {
- color: rgb(94, 94, 94)
+ color: rgb(94, 94, 94);
 }
 
 form {
@@ -166,8 +166,43 @@ legend {
   padding-bottom: 1%;
   padding-left: 0;
 }
+
 fieldset {
   border: none;
   padding: 0;
   margin: 0;
+}
+
+#pwLengthTooltip {
+  font-size: .6em;
+  vertical-align: super;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer; 
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(94, 94, 94);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+  font-size: .9em;
+  font-family: sans-serif;
+  font-weight: 300;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

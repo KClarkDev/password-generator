@@ -9,7 +9,7 @@ var passwordLengthInput = document.querySelector("#passwordLength");
 
 var passwordLength = passwordLengthInput.value;
 
-var form = document.querySelector('#passwordForm');
+
 
 
 
@@ -97,13 +97,26 @@ function copyPasswordToClipboard() {
 }
 
 function validateForm() {
+  var form = document.querySelector('#passwordForm');
+  var passwordLength = form.elements.passwordLength;
+  var charTypeElements = passwordForm.elements.charType;
+  var selectedCharTypes = []; // Array to store selected character types
+
+  for (var i = 0; i < charTypeElements.length; i++) {
+    if (charTypeElements[i].checked) {
+      selectedCharTypes.push(charTypeElements[i].value);
+    }
+  }
+
   if (!form.checkValidity()) {
     // Display an alert for each field that is not valid
     var invalidFields = form.querySelectorAll(':invalid');
     invalidFields.forEach(function(field) {
       alert('Please fill in the ' + field.getAttribute('id') + ' field.');
     });
-    return; // Stop further execution if there are validation errors
+  }
+  else if (selectedCharTypes.length === 0) {
+    alert('Please select at least one character type.');
   }
 }
 
@@ -114,8 +127,9 @@ function validateForm() {
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
-generateBtn.addEventListener("click", generatePassword);
 generateBtn.addEventListener("click", validateForm);
+generateBtn.addEventListener("click", generatePassword);
+
 
 // Get references to the #copyButton element
 var copyButton = document.querySelector("#copyButton");
