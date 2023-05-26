@@ -14,14 +14,29 @@
          <header>
             <h1>Password Generator</h1>
          </header>
-         <form class="criteria-form">
-          
 
-         </form>
          <div class="card">
             <div class="card-header">
                <h2>Generate a Password</h2>
             </div>
+            <form class="criteria-form"> <!--asks for password length (8-128), char types (lower, upper, numeric, special) - min one required! -->
+              <label for="passwordLength">How long should the password be? </label>
+              <input type="number" name="passwordLength" id="passwordLength" min="8" max="128" required><br><br>
+
+              <label for="chars">What characters should be included? </label><br>
+
+              <input type="checkbox" name="chars" id="uppercase" value="Uppercase">
+              <label for="uppercase"> Uppercase</label><br>
+
+              <input type="checkbox" name="chars" id="lowercase" value="Lowercase">
+              <label for="lowercase"> Lowercase</label><br>
+
+              <input type="checkbox" name="chars" id="numeric" value="Numeric">
+              <label for="numeric"> Numeric</label><br>
+
+              <input type="checkbox" name="chars" id="special" value="Special">
+              <label for="special"> Special</label><br>
+             </form>
             <div class="card-body">
                <textarea
                   readonly
@@ -29,7 +44,7 @@
                   placeholder="Your Secure Password"
                   aria-label="Generated Password"
                   ></textarea>
-                  <!-- <button id="copyButton" class="copy-btn"><i class="fa-solid fa-copy"></i></button> -->
+                  <button id="copyButton" class="copy-btn"><i class="fa-solid fa-copy"></i></button>
             </div>
             <div class="card-footer">
                <button id="generate" class="btn">Generate Password</button>
