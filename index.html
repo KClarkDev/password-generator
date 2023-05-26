@@ -19,23 +19,23 @@
             <div class="card-header">
                <h2>Generate a Password</h2>
             </div>
-            <form class="criteria-form"> <!--asks for password length (8-128), char types (lower, upper, numeric, special) - min one required! -->
-              <label for="passwordLength">How long should the password be? </label>
+            <form class="criteria-form" id="passwordForm"> <!--asks for password length (8-128), char types (lower, upper, numeric, special) - min one required! -->
+              <label for="passwordLength">How many characters should the password have? </label>
               <input type="number" name="passwordLength" id="passwordLength" min="8" max="128" required><br><br>
 
               <fieldset>
                 <legend>What characters should be included?</legend>
             
-                <input type="checkbox" name="chars" id="uppercase" value="Uppercase">
+                <input type="checkbox" name="charType" id="uppercase" value="Uppercase">
                 <label for="uppercase">Uppercase</label><br>
             
-                <input type="checkbox" name="chars" id="lowercase" value="Lowercase">
+                <input type="checkbox" name="charType" id="lowercase" value="Lowercase">
                 <label for="lowercase">Lowercase</label><br>
             
-                <input type="checkbox" name="chars" id="numeric" value="Numeric">
+                <input type="checkbox" name="charType" id="numeric" value="Numeric">
                 <label for="numeric">Numeric</label><br>
             
-                <input type="checkbox" name="chars" id="special" value="Special">
+                <input type="checkbox" name="charType" id="special" value="Special">
                 <label for="special">Special</label><br>
               </fieldset>
              </form>
