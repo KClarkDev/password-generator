@@ -3,24 +3,28 @@
 ////////////////////////////////////////////////////
 
 // array of valid characters to be used in the password
-var characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', '#', '$', '%', '&', '(', ')', '*', '+', '_'];
+// var characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', '#', '$', '%', '&', '(', ')', '*', '+', '_'];
 
 var passwordLengthInput = document.querySelector("#passwordLength");
 
 var passwordLength = passwordLengthInput.value;
 
+var form = document.querySelector('#passwordForm');
+
+
+
 /////////////////////////////////////////////
 //////////////////FUNCTIONS//////////////////
 /////////////////////////////////////////////
 
-function getRandomChar(arr) {
+// function getRandomChar(arr) {
 
-  // get random index value
-  var randomIndex = Math.floor(Math.random() * arr.length);
+//   // get random index value
+//   var randomIndex = Math.floor(Math.random() * arr.length);
 
-  // get random item
-  return arr[randomIndex];
-}
+//   // get random item
+//   return arr[randomIndex];
+// }
 
 // // calls the getRandomChar() function and returns a string of random characters that has the length of the passwordLength variable
 // function generatePassword(passLength) {
@@ -45,8 +49,6 @@ function generatePassword() {
       selectedCharTypes.push(charTypeElements[i].value);
     }
   }
-
-  console.log(selectedCharTypes)
 
   // Define character sets based on selected character types
   var characterSets = {
@@ -94,6 +96,17 @@ function copyPasswordToClipboard() {
     });
 }
 
+function validateForm() {
+  if (!form.checkValidity()) {
+    // Display an alert for each field that is not valid
+    var invalidFields = form.querySelectorAll(':invalid');
+    invalidFields.forEach(function(field) {
+      alert('Please fill in the ' + field.getAttribute('id') + ' field.');
+    });
+    return; // Stop further execution if there are validation errors
+  }
+}
+
 ///////////////////////////////////////////////////
 //////////////////EVENT LISTENERS//////////////////
 ///////////////////////////////////////////////////
@@ -102,8 +115,12 @@ function copyPasswordToClipboard() {
 var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
 generateBtn.addEventListener("click", generatePassword);
+generateBtn.addEventListener("click", validateForm);
 
 // Get references to the #copyButton element
 var copyButton = document.querySelector("#copyButton");
 // Add event listener to copy button
 copyButton.addEventListener("click", copyPasswordToClipboard);
+
+
+
