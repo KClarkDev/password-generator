@@ -4,7 +4,12 @@ var characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm
 // TODO: add validation
 // var passwordLength = prompt("How many characters do you want in the password? (must be between 8 and 128 characters)");
 
-var passwordLength = document.querySelector("#passwordLength");
+var passwordLengthInput = document.querySelector("#passwordLength");
+
+var passwordLength = passwordLengthInput.value;
+
+console.log(passwordLengthInput);
+console.log(passwordLength);
 
 
 function getRandomChar(arr) {
@@ -34,7 +39,8 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword(passwordLength);
+  var passwordLength = passwordLengthInput.value; // Get the value of the input field
+  var password = generatePassword(parseInt(passwordLength)); // Parse the value to an integer
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
