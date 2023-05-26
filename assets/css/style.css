@@ -52,6 +52,7 @@ header {
 
 .card-body {
   min-height: 100px;
+  position: relative;
 }
 
 .card-footer {
@@ -112,10 +113,12 @@ button[disabled] {
   border: none;
   display: block;
   width: 100%;
-  padding-top: 15px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  /* padding-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  padding-bottom: 85px;
+  padding-bottom: 15px; */
   font-size: 1.2rem;
   text-align: center;
   margin-top: 10px;
@@ -142,4 +145,15 @@ button[disabled] {
   .btn {
     font-size: 0.8rem;
   }
+}
+
+/* copy button icon is anchored to the top-right of the textarea*/
+.copy-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+i {
+ color: rgb(94, 94, 94)
 }
