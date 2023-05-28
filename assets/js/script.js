@@ -1,11 +1,3 @@
-////////////////////////////////////////////////////
-//////////////////GLOBAL VARIABLES//////////////////
-////////////////////////////////////////////////////
-
-var passwordLengthInput = document.querySelector("#passwordLength");
-
-var passwordLength = passwordLengthInput.value;
-
 /////////////////////////////////////////////
 //////////////////FUNCTIONS//////////////////
 /////////////////////////////////////////////
@@ -13,7 +5,8 @@ var passwordLength = passwordLengthInput.value;
 function generatePassword() {
   var passwordForm = document.getElementById("passwordForm"); // Get access to the form element in the HTML
   var passwordLength = parseInt(passwordForm.elements.passwordLength.value); // Access the password length input value and convert from text to integer
-  var charTypeElements = passwordForm.elements.charType; // Get access to all the elements in the HTML with "name" equal to "charType". This returns a NodeList (represents a collection of nodes (elements) in the document order. You can access individual elements from the collection using their index, similar to an array.)
+  var charTypeElements = passwordForm.elements.charType; // Get access to all the elements in the HTML with "name" equal to "charType". 
+  // STUDY NOTE: This returns a NodeList (represents a collection of nodes (elements) in the document order. You can access individual elements from the collection using their index, similar to an array.)
 
   var selectedCharTypes = []; // Array to store selected character types
 
@@ -24,7 +17,8 @@ function generatePassword() {
     }
   }
 
-  // Define character sets based on selected character types
+  // Define character sets based on possible character types. 
+  // STUDY NOTE: This is an object with key-value pairs
   var characterSets = {
     Uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     Lowercase: "abcdefghijklmnopqrstuvwxyz",
@@ -33,20 +27,21 @@ function generatePassword() {
   };
 
   // Combines the character sets based on the selected character types (selectedCharTypes) by reducing them into a single string using the reduce method.
-  // NOTE FOR STUDY: This is a function expression - when a function is assigned to a variable or a property of an object
+  // STUDY NOTE: This is a function expression - when a function is assigned to a variable or a property of an object
   var characters = selectedCharTypes.reduce(function(acc, charType) {
     return acc + characterSets[charType];
   }, "");
 
+  // Starting with an empty string (generatedPassword), selects a character from the characters variable based on a random index, then appends this value to the empty string. This loops for as long as the number the user inputs for passwordLength.
   var generatedPassword = "";
   for (var i = 0; i < passwordLength; i++) {
     var randomIndex = Math.floor(Math.random() * characters.length);
     generatedPassword += characters.charAt(randomIndex);
   }
 
-  var passwordText = document.querySelector("#password");
+  var passwordText = document.querySelector("#password"); // Access the textarea in the HTML with the uniqueID of password
 
-  passwordText.value = generatedPassword;
+  passwordText.value = generatedPassword; // Assigns the generatedPassword variable to the value of the textarea in the HTML
 }
 
 // Copies password to clipboard
@@ -62,6 +57,7 @@ function copyPasswordToClipboard() {
     });
 }
 
+// Validates user input to ensure that a password length has been entered, and at least one character type has been selected
 function validateForm() {
   var form = document.querySelector('#passwordForm');
   var passwordLength = form.elements.passwordLength;
@@ -92,14 +88,14 @@ function validateForm() {
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-// Add event listener to generate button
+// Add event listener to generate button for data (input) validation and password generation
 generateBtn.addEventListener("click", validateForm);
 generateBtn.addEventListener("click", generatePassword);
 
 
 // Get references to the #copyButton element
 var copyButton = document.querySelector("#copyButton");
-// Add event listener to copy button
+// Add event listener to copy button to copy the generated password to the clipboard
 copyButton.addEventListener("click", copyPasswordToClipboard);
 
 
