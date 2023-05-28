@@ -70,6 +70,9 @@ function validateForm() {
     }
   }
 
+  // STUDY NOTE: The HTMLSelectElement.checkValidity() method checks whether the element has any constraints and whether it satisfies them. If the element fails its constraints, the browser fires a cancelable invalid event at the element, and then returns false.
+
+  // QUESTION: CAN REQUIRED BE USED WITH SELECT MULTIPLE TYPES? IS THERE A BETTER WAY TO HANDLE THIS LOGIC?
   if (!form.checkValidity()) {
     // Display an alert for each field that is not valid
     var invalidFields = form.querySelectorAll(':invalid');
